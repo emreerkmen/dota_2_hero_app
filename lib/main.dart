@@ -1,4 +1,7 @@
+import 'package:dota_2_hero_app/model/theme_model.dart';
+import 'package:dota_2_hero_app/screens/heros_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(MyApp());
@@ -7,10 +10,9 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Dota 2 Hero App',
-      theme: ThemeData.dark(),
-      home: MyHomePage(),
+    return ChangeNotifierProvider(
+      create: (context) => ThemeModel(),
+      child: MyHomePage(),
     );
   }
 }
@@ -18,9 +20,10 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: Center(),
+    return MaterialApp(
+      title: 'Dota 2 Hero App',
+      theme: context.watch<ThemeModel>().getTheme(),
+      home: HerosScreen(),
     );
   }
 }
