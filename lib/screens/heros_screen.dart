@@ -1,4 +1,4 @@
-import 'package:dota_2_hero_app/widgets/color_container.dart';
+import 'package:dota_2_hero_app/components/color_container.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:dota_2_hero_app/model/theme_model.dart';
