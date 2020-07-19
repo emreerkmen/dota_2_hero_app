@@ -1,4 +1,3 @@
-import 'package:dota_2_hero_app/components/color_container.dart';
 import 'package:flutter/material.dart';
 
 enum HeroList { allHero, popular }
@@ -21,7 +20,7 @@ class _HeroListTypeState extends State<HeroListType> {
                 const EdgeInsets.symmetric(horizontal: 12.0, vertical: 10.0),
             child: Container(
               decoration: BoxDecoration(
-                color: Color(0xff1F1F27),
+                color: Theme.of(context).accentColor,
                 borderRadius: BorderRadius.all(Radius.circular(50.0)),
               ),
               child: Padding(
@@ -32,7 +31,7 @@ class _HeroListTypeState extends State<HeroListType> {
                       padding: const EdgeInsets.only(right: 13.0),
                       child: Text(
                         'All Hero',
-                        style: TextStyle(fontSize: 17.0),
+                        style: Theme.of(context).textTheme.bodyText1,
                       ),
                     ),
                     Radio(
@@ -44,6 +43,7 @@ class _HeroListTypeState extends State<HeroListType> {
                           _listType = value;
                         });
                       },
+                      activeColor: Colors.red[300],
                     ),
                   ],
                 ),
@@ -55,7 +55,7 @@ class _HeroListTypeState extends State<HeroListType> {
                 const EdgeInsets.symmetric(horizontal: 12.0, vertical: 10.0),
             child: Container(
               decoration: BoxDecoration(
-                color: Color(0xff1F1F27),
+                color: Theme.of(context).accentColor,
                 borderRadius: BorderRadius.all(Radius.circular(50.0)),
               ),
               child: Padding(
@@ -66,7 +66,7 @@ class _HeroListTypeState extends State<HeroListType> {
                       padding: const EdgeInsets.only(right: 13.0),
                       child: Text(
                         'Popular',
-                        style: TextStyle(fontSize: 17.0),
+                        style: Theme.of(context).textTheme.bodyText1,
                       ),
                     ),
                     Radio(
@@ -78,6 +78,9 @@ class _HeroListTypeState extends State<HeroListType> {
                           _listType = value;
                         });
                       },
+                      activeColor: Colors.red[300],
+                      focusColor: Colors.yellow,
+                      hoverColor: Colors.yellow,
                     ),
                   ],
                 ),
