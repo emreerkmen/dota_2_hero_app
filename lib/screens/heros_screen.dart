@@ -1,4 +1,5 @@
 import 'package:dota_2_hero_app/components/color_container.dart';
+import 'package:dota_2_hero_app/components/hero_list_type.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:dota_2_hero_app/model/theme_model.dart';
@@ -10,11 +11,10 @@ class HerosScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Expanded(
-              child: ColorContainer(
+        body: ColorContainer(
+          inChild: Column(
+            children: <Widget>[
+              ColorContainer(
                 inChild: Column(
                   children: <Widget>[
                     Row(
@@ -45,9 +45,9 @@ class HerosScreen extends StatelessWidget {
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 20.0, vertical: 25.0),
+                              horizontal: 10.0, vertical: 22.0),
                           child: CircleAvatar(
-                            radius: 25.0,
+                            radius: 30.0,
                             backgroundImage: AssetImage('images/avatar.jpg'),
                           ),
                         ),
@@ -60,10 +60,9 @@ class HerosScreen extends StatelessWidget {
                   ],
                 ),
               ),
-            ),
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: ColorContainer(
+              HeroListType(),
+              Expanded(child: Container()),
+              ColorContainer(
                 inChild: Row(
                   children: <Widget>[
                     FlatButton(
@@ -76,9 +75,9 @@ class HerosScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );
