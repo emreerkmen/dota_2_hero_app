@@ -1,4 +1,5 @@
 import 'package:dota_2_hero_app/components/color_container.dart';
+import 'package:dota_2_hero_app/components/diagonal_hero_stack.dart';
 import 'package:dota_2_hero_app/components/hero_list_type.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -22,7 +23,8 @@ class HerosScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Padding(
-                          padding: const EdgeInsets.fromLTRB(20.0, 20.0, 0.0, 20.0),
+                          padding:
+                              const EdgeInsets.fromLTRB(20.0, 20.0, 0.0, 20.0),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
@@ -68,123 +70,107 @@ class HerosScreen extends StatelessWidget {
                   crossAxisSpacing: 10,
                   mainAxisSpacing: 10,
                   crossAxisCount: 2,
-                  childAspectRatio: 0.82, //itemWidth / itemHeight
+                  childAspectRatio: 0.82, // itemWidth / itemHeight = 0.82
                   children: <Widget>[
-                    Stack(
-                      fit: StackFit.expand,
-                      children: <Widget>[
-                        ClipPath(
-                          clipper: MyCustomClipper(),
-                          child: Container(
-                            padding: const EdgeInsets.all(8),
-                            decoration: BoxDecoration(
-                              color: Colors.red[300],
-                            ),
-                          ),
-                        ),
-                        Align(
-                          alignment: Alignment.bottomRight,
-                          child: Image.asset('images/juggernaut.png'),
-                        ),
-                        Positioned(
-                          bottom: 20.0,
-                          left: 20.0,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 5.0),
-                                child: Text(
-                                  'Juggernaut',
-                                  style: TextStyle(
-                                      color: Colors.white70,
-                                      fontWeight: FontWeight.w900,
-                                      fontSize: 20.0),
-                                ),
-                              ),
-                              Text(
-                                '35K Views',
-                                style: TextStyle(
-                                    color: Colors.white70,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 13.0),
-                              )
-                            ],
-                          ),
-                        )
-                      ],
+                    DiagonalHeroStack(
+                      clipPathColor: Color(0xffc43a3d),
+                      pngName: 'juggernaut',
+                      heroName: 'Juggernaunt',
+                      viewNumber: 35,
+                      bottom: 15.0,
+                      right: -65.0,
+                      height: 210.0,
+                      width: 250.0,
                     ),
-                    Stack(
-                      fit: StackFit.expand,
-                      overflow: Overflow.visible,
-                      children: <Widget>[
-                        ClipPath(
-                          clipper: MyCustomClipper(),
-                          child: Container(
-                            padding: const EdgeInsets.all(8),
-                            decoration: BoxDecoration(
-                              color: Colors.purple[800],
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          bottom: -30,
-                          right: -27,
-                          height: 290,
-                          width: 250,
-                          child: Image.asset(
-                            'images/ogremagi.png',
-                          ),
-                        ),
-                        Positioned(
-                          bottom: 20.0,
-                          left: 20.0,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 5.0),
-                                child: Text(
-                                  'Ogre Magi',
-                                  style: TextStyle(
-                                      color: Colors.white70,
-                                      fontWeight: FontWeight.w900,
-                                      fontSize: 20.0),
-                                ),
-                              ),
-                              Text(
-                                '25K Views',
-                                style: TextStyle(
-                                    color: Colors.white70,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 13.0),
-                              )
-                            ],
-                          ),
-                        )
-                      ],
+                    DiagonalHeroStack(
+                      clipPathColor: Colors.purple[800],
+                      pngName: 'ogremagi',
+                      heroName: 'Ogre Magi',
+                      viewNumber: 25,
+                      bottom: -30,
+                      right: -27,
+                      height: 290,
+                      width: 250,
                     ),
-                    Container(
-                      padding: const EdgeInsets.all(8),
-                      child: const Text('Sound of screams but the'),
-                      color: Colors.deepPurple[300],
+                    DiagonalHeroStack(
+                      clipPathColor: Color(0xff4650C8),
+                      pngName: 'faceless',
+                      heroName: 'Faceless',
+                      viewNumber: 15,
+                      bottom: -8,
+                      right: -65,
+                      height: 245,
+                      width: 250,
                     ),
-                    Container(
-                      padding: const EdgeInsets.all(8),
-                      child: const Text('Who scream'),
-                      color: Colors.cyan[400],
+                    DiagonalHeroStack(
+                      clipPathColor: Color(0xff0e5f7f),
+                      pngName: 'zeus',
+                      heroName: 'Zeus',
+                      viewNumber: 12,
+                      bottom: -6,
+                      right: -38,
+                      height: 255,
+                      width: 250,
                     ),
-                    Container(
-                      padding: const EdgeInsets.all(8),
-                      child: const Text('Revolution is coming...'),
-                      color: Colors.deepOrange[500],
+                    DiagonalHeroStack(
+                      clipPathColor: Color(0xffb71b1b),
+                      pngName: 'bloodseeker',
+                      heroName: 'Bloodseeker',
+                      viewNumber: 50,
+                      bottom: 40,
+                      right: -58,
+                      height: 180,
+                      width: 250,
                     ),
-                    Container(
-                      padding: const EdgeInsets.all(8),
-                      child: const Text('Revolution, they...'),
-                      color: Colors.yellow[600],
+                    DiagonalHeroStack(
+                      clipPathColor: Color(0xff1f95a3),
+                      pngName: 'tusk',
+                      heroName: 'Tusk',
+                      viewNumber: 5,
+                      bottom: 30,
+                      right: -39,
+                      height: 200,
+                      width: 250,
+                    ),
+                    DiagonalHeroStack(
+                      clipPathColor: Color(0xff6144e2),
+                      pngName: 'bane',
+                      heroName: 'Bane',
+                      viewNumber: 20,
+                      bottom: 0,
+                      right: -45,
+                      height: 250,
+                      width: 250,
+                    ),
+                    DiagonalHeroStack(
+                      clipPathColor: Color(0xff561515),
+                      pngName: 'shadowfiend',
+                      heroName: 'Shadow Fiend',
+                      viewNumber: 10,
+                      bottom: 10,
+                      right: -45,
+                      height: 230,
+                      width: 250,
+                    ),
+                    DiagonalHeroStack(
+                      clipPathColor: Color(0xff0c3554),
+                      pngName: 'phantumassassin',
+                      heroName: 'P. Assassin',
+                      viewNumber: 60,
+                      bottom: 5,
+                      right: -90,
+                      height: 230,
+                      width: 250,
+                    ),
+                    DiagonalHeroStack(
+                      clipPathColor: Color(0xff4f0000),
+                      pngName: 'axe2',
+                      heroName: 'Axe',
+                      viewNumber: 23,
+                      bottom: 5,
+                      right: -60,
+                      height: 200,
+                      width: 250,
                     ),
                   ],
                 ),
@@ -210,78 +196,3 @@ class HerosScreen extends StatelessWidget {
     );
   }
 }
-
-// ignore: todo
-//TODO: This will be added under components file.
-class MyCustomClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    double roundnessFactor = 30.0;
-    double startHeight = size.height * 0.2;
-
-    final Path path = Path()
-      //we set start point to x=20.0 and y=80.0.
-      ..moveTo(0, startHeight)
-      // draw a line to bottom left corner until size.height-radius
-      ..lineTo(0, size.height - roundnessFactor)
-      // draw bottom left arc
-      ..quadraticBezierTo(0, size.height, roundnessFactor, size.height)
-      // draw a line from previous arc to bottom right corner until size.height
-      ..lineTo(size.width - roundnessFactor, size.height)
-      // draw a bottom right arc
-      ..quadraticBezierTo(
-          size.width, size.height, size.width, size.height - roundnessFactor)
-      // draw a line from previous arc to top right corner until radius
-      ..lineTo(size.width, roundnessFactor + 20)
-      // draw a top right arc
-      ..quadraticBezierTo(size.width, 10, size.width - roundnessFactor * 1.1,
-          roundnessFactor * 0.5)
-      // draw a line from previous arc to top left corner until startHeight
-      ..lineTo(roundnessFactor, startHeight)
-      // draw a top left arc
-      ..quadraticBezierTo(0, startHeight + 5, 0, startHeight + roundnessFactor)
-      ..close();
-    return path;
-  }
-
-  @override
-  bool shouldReclip(MyCustomClipper oldClipper) => true;
-}
-
-/*// ignore: todo
-//TODO: This will be added under components file.
-class MyCustomClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    double radius = 20;
-    double startHeight = size.height * 0.10;
-    double startWidth = radius+10.0;
-
-    final Path path = Path()
-      //we set start point to x=20.0 and y=80.0.
-      ..moveTo(startWidth, startHeight)
-      // draw a line to top right corner until the size.width-radius
-      ..lineTo(size.width - radius, 0)
-      // draw top rigth arc
-      ..arcToPoint(Offset(size.width, radius), radius: Radius.circular(radius))
-      // draw a line from previous arc to bottom right corner until size.height - radius
-      ..lineTo(size.width, size.height - radius)
-      // draw a bottom right arc
-      ..arcToPoint(Offset(size.width - radius, size.height),
-          radius: Radius.circular(radius))
-      // draw a line from previous arc to bottom left corner until radius
-      ..lineTo(radius, size.height)
-      // draw a bottom left arc
-      ..arcToPoint(Offset(0, size.height - radius),
-          radius: Radius.circular(radius))
-      // draw a line from previous arc to top right corner until radius
-      ..lineTo(0, startHeight + radius)
-      // draw a top left arc
-      ..arcToPoint(Offset(radius, startHeight), radius: Radius.circular(radius))
-      ..close();
-    return path;
-  }
-
-  @override
-  bool shouldReclip(MyCustomClipper oldClipper) => true;
-} */
