@@ -1,3 +1,4 @@
+import 'package:dota_2_hero_app/components/radio2.dart' as special_version;
 import 'package:flutter/material.dart';
 
 enum HeroList { allHero, popular }
@@ -34,7 +35,7 @@ class _HeroListTypeState extends State<HeroListType> {
                         style: Theme.of(context).textTheme.bodyText1,
                       ),
                     ),
-                    Radio(
+                    special_version.Radio(
                       materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                       value: HeroList.allHero,
                       groupValue: _listType,
@@ -69,7 +70,7 @@ class _HeroListTypeState extends State<HeroListType> {
                         style: Theme.of(context).textTheme.bodyText1,
                       ),
                     ),
-                    Radio(
+                    special_version.Radio(
                       materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                       value: HeroList.popular,
                       groupValue: _listType,
