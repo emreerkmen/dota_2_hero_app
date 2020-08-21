@@ -1,12 +1,45 @@
 import 'package:dota_2_hero_app/components/color_container.dart';
 import 'package:dota_2_hero_app/components/diagonal_hero_stack.dart';
 import 'package:dota_2_hero_app/components/hero_list_type.dart';
+import 'package:dota_2_hero_app/screens/matches_screen.dart';
+import 'package:dota_2_hero_app/screens/streams_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:dota_2_hero_app/model/theme_model.dart';
 
-class HerosScreen extends StatelessWidget {
-  const HerosScreen({Key key}) : super(key: key);
+class HerosScreen extends StatefulWidget {
+
+  static const String id = 'heros_screen';
+
+  @override
+  _HerosScreenState createState() => _HerosScreenState();
+}
+
+class _HerosScreenState extends State<HerosScreen> {
+  int _selectedIndex = 0;
+
+  static const TextStyle optionStyle =
+      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+
+  void _onItemTapped(int index) {
+
+     switch (index) {
+      case 0:
+        Navigator.pushNamed(context, HerosScreen.id);
+        break;
+      case 1:
+        Navigator.pushNamed(context, StreamsScreen.id);
+        break;
+      case 2:
+        Navigator.pushNamed(context, MatchesScreen.id);
+        break;
+    }
+
+    setState(() {
+      _selectedIndex = index;
+
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -191,6 +224,26 @@ class HerosScreen extends StatelessWidget {
               )
             ],
           ),
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              title: Text('Tutorial'),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.business),
+              title: Text('Stream'),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.school),
+              title: Text('Match'),
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          selectedItemColor: Colors.red[800],
+          onTap: _onItemTapped,
+          backgroundColor: Theme.of(context).primaryColor,
         ),
       ),
     );

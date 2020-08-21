@@ -44,7 +44,7 @@ class _HeroListTypeState extends State<HeroListType> {
                           _listType = value;
                         });
                       },
-                      activeColor: Colors.red[300],
+                      activeColor: Colors.red[800],
                     ),
                   ],
                 ),
@@ -79,7 +79,7 @@ class _HeroListTypeState extends State<HeroListType> {
                           _listType = value;
                         });
                       },
-                      activeColor: Colors.red[300],
+                      activeColor: Colors.red[800],
                       focusColor: Colors.yellow,
                       hoverColor: Colors.yellow,
                     ),
