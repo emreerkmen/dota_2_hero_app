@@ -1,6 +1,7 @@
 import 'package:dota_2_hero_app/components/color_container.dart';
 import 'package:dota_2_hero_app/components/diagonal_hero_stack.dart';
 import 'package:dota_2_hero_app/components/hero_list_type.dart';
+import 'package:dota_2_hero_app/model/hero_list.dart';
 import 'package:dota_2_hero_app/screens/matches_screen.dart';
 import 'package:dota_2_hero_app/screens/streams_screen.dart';
 import 'package:flutter/material.dart';
@@ -40,6 +41,8 @@ class _HerosScreenState extends State<HerosScreen> {
 
     });
   }
+
+  HerosList heroList = HerosList();
 
   @override
   Widget build(BuildContext context) {
@@ -105,105 +108,15 @@ class _HerosScreenState extends State<HerosScreen> {
                   crossAxisCount: 2,
                   childAspectRatio: 0.82, // itemWidth / itemHeight = 0.82
                   children: <Widget>[
-                    DiagonalHeroStack(
-                      clipPathColor: Color(0xffc43a3d),
-                      pngName: 'juggernaut',
-                      heroName: 'Juggernaunt',
-                      viewNumber: 35,
-                      bottom: 15.0,
-                      right: -65.0,
-                      height: 210.0,
-                      width: 250.0,
-                    ),
-                    DiagonalHeroStack(
-                      clipPathColor: Colors.purple[800],
-                      pngName: 'ogremagi',
-                      heroName: 'Ogre Magi',
-                      viewNumber: 25,
-                      bottom: -30,
-                      right: -27,
-                      height: 290,
-                      width: 250,
-                    ),
-                    DiagonalHeroStack(
-                      clipPathColor: Color(0xff4650C8),
-                      pngName: 'faceless',
-                      heroName: 'Faceless',
-                      viewNumber: 15,
-                      bottom: -8,
-                      right: -65,
-                      height: 245,
-                      width: 250,
-                    ),
-                    DiagonalHeroStack(
-                      clipPathColor: Color(0xff0e5f7f),
-                      pngName: 'zeus',
-                      heroName: 'Zeus',
-                      viewNumber: 12,
-                      bottom: -6,
-                      right: -38,
-                      height: 255,
-                      width: 250,
-                    ),
-                    DiagonalHeroStack(
-                      clipPathColor: Color(0xffb71b1b),
-                      pngName: 'bloodseeker',
-                      heroName: 'Bloodseeker',
-                      viewNumber: 50,
-                      bottom: 40,
-                      right: -58,
-                      height: 180,
-                      width: 250,
-                    ),
-                    DiagonalHeroStack(
-                      clipPathColor: Color(0xff1f95a3),
-                      pngName: 'tusk',
-                      heroName: 'Tusk',
-                      viewNumber: 5,
-                      bottom: 30,
-                      right: -39,
-                      height: 200,
-                      width: 250,
-                    ),
-                    DiagonalHeroStack(
-                      clipPathColor: Color(0xff6144e2),
-                      pngName: 'bane',
-                      heroName: 'Bane',
-                      viewNumber: 20,
-                      bottom: 0,
-                      right: -45,
-                      height: 250,
-                      width: 250,
-                    ),
-                    DiagonalHeroStack(
-                      clipPathColor: Color(0xff561515),
-                      pngName: 'shadowfiend',
-                      heroName: 'Shadow Fiend',
-                      viewNumber: 10,
-                      bottom: 10,
-                      right: -45,
-                      height: 230,
-                      width: 250,
-                    ),
-                    DiagonalHeroStack(
-                      clipPathColor: Color(0xff0c3554),
-                      pngName: 'phantumassassin',
-                      heroName: 'P. Assassin',
-                      viewNumber: 60,
-                      bottom: 5,
-                      right: -90,
-                      height: 230,
-                      width: 250,
-                    ),
-                    DiagonalHeroStack(
-                      clipPathColor: Color(0xff4f0000),
-                      pngName: 'axe2',
-                      heroName: 'Axe',
-                      viewNumber: 23,
-                      bottom: 5,
-                      right: -60,
-                      height: 200,
-                      width: 250,
+                    for (var hero in heroList.allHeros) DiagonalHeroStack(
+                      clipPathColor: hero.clipPathColor,
+                      pngName: hero.pngName,
+                      heroName: hero.heroName,
+                      viewNumber: hero.viewNumber,
+                      bottom: hero.bottom,
+                      right: hero.right,
+                      height: hero.height,
+                      width: hero.width,
                     ),
                   ],
                 ),
