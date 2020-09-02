@@ -1,7 +1,8 @@
 import 'package:dota_2_hero_app/components/color_container.dart';
 import 'package:dota_2_hero_app/components/diagonal_hero_stack.dart';
 import 'package:dota_2_hero_app/components/hero_list_type.dart';
-import 'package:dota_2_hero_app/model/hero_list.dart';
+import 'package:dota_2_hero_app/components/heroes_grid_view.dart';
+import 'package:dota_2_hero_app/model/heros_list.dart';
 import 'package:dota_2_hero_app/screens/matches_screen.dart';
 import 'package:dota_2_hero_app/screens/streams_screen.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +10,6 @@ import 'package:provider/provider.dart';
 import 'package:dota_2_hero_app/model/theme_model.dart';
 
 class HerosScreen extends StatefulWidget {
-
   static const String id = 'heros_screen';
 
   @override
@@ -23,8 +23,7 @@ class _HerosScreenState extends State<HerosScreen> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
   void _onItemTapped(int index) {
-
-     switch (index) {
+    switch (index) {
       case 0:
         Navigator.pushNamed(context, HerosScreen.id);
         break;
@@ -38,7 +37,6 @@ class _HerosScreenState extends State<HerosScreen> {
 
     setState(() {
       _selectedIndex = index;
-
     });
   }
 
@@ -99,34 +97,14 @@ class _HerosScreenState extends State<HerosScreen> {
                 ),
               ),
               HeroListType(),
-              Expanded(
-                child: GridView.count(
-                  primary: false,
-                  padding: const EdgeInsets.all(20),
-                  crossAxisSpacing: 10,
-                  mainAxisSpacing: 10,
-                  crossAxisCount: 2,
-                  childAspectRatio: 0.82, // itemWidth / itemHeight = 0.82
-                  children: <Widget>[
-                    for (var hero in heroList.allHeros) DiagonalHeroStack(
-                      clipPathColor: hero.clipPathColor,
-                      pngName: hero.pngName,
-                      heroName: hero.heroName,
-                      viewNumber: hero.viewNumber,
-                      bottom: hero.bottom,
-                      right: hero.right,
-                      height: hero.height,
-                      width: hero.width,
-                    ),
-                  ],
-                ),
-              ),
+              HeroesGridView(heroList: heroList),
               ColorContainer(
                 inChild: Row(
                   children: <Widget>[
                     FlatButton(
                       onPressed: () {
                         context.read<ThemeModel>().toggleTheme();
+                        context.read<HerosList>().toggleHeroesType();
                       },
                       child: Text(
                         "Change Theme",

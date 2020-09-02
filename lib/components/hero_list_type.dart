@@ -1,5 +1,8 @@
 import 'package:dota_2_hero_app/components/radio2.dart' as special_version;
+import 'package:dota_2_hero_app/model/heros_list.dart';
+import 'package:dota_2_hero_app/model/theme_model.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 enum HeroList { allHero, popular }
 
@@ -40,6 +43,7 @@ class _HeroListTypeState extends State<HeroListType> {
                       value: HeroList.allHero,
                       groupValue: _listType,
                       onChanged: (HeroList value) {
+                        context.read<HerosList>().toggleHeroesType();
                         setState(() {
                           _listType = value;
                         });
@@ -75,6 +79,7 @@ class _HeroListTypeState extends State<HeroListType> {
                       value: HeroList.popular,
                       groupValue: _listType,
                       onChanged: (HeroList value) {
+                        context.read<HerosList>().toggleHeroesType();
                         setState(() {
                           _listType = value;
                         });

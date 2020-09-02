@@ -1,9 +1,10 @@
 import 'dart:ui';
-
 import 'package:dota_2_hero_app/model/hero_class.dart';
 import 'package:flutter/material.dart';
 
-class HerosList {
+enum HerosType { All, Popular }
+
+class HerosList extends ChangeNotifier {
   // var lst = new List(3) --> Fixed List, var  lst = [val1,val2,val3] or var lst = new List() --> Growable List
   final List<HeroClass> _allHeros = [
     HeroClass(
@@ -107,29 +108,37 @@ class HerosList {
     ),
   ];
 
-  List<HeroClass> _popularHeros = [];
+  HerosType _herosType = HerosType.All;
+  
+  List<HeroClass> _heros;
 
-  /*var command = [
-    engineDartPath,
-    frontendServer,
-    for (var root in fileSystemRoots) '--filesystem-root=$root',
-    for (var entryPointsJson in entryPointsJsonFiles)
-      if (fileExists("$entryPointsJson.json")) entryPointsJson,
-    mainPath
-  ]; */
-
-  HeroList() {
-    _popularHeros = [
-      for (var heros in _allHeros)
-        if (heros.viewNumber > 10) heros
-    ];
+  HerosList() {
+    _heros = List.from(_allHeros);
   }
 
-  List<HeroClass> get allHeros {
-    return _allHeros;
-  }
+  List<HeroClass> get heros => _heros;
 
-  List<HeroClass> get popularHeros {
-    return _popularHeros;
+  List<HeroClass> get allHeros => _allHeros;
+
+  List<HeroClass> get popularHeros => [
+        for (var heros in _allHeros)
+          if (heros.viewNumber > 10) heros
+      ];
+
+  void toggleHeroesType() {
+    //https://github.com/dart-lang/language/blob/master/accepted/2.3/spread-collections/feature-specification.md
+
+    if (_herosType == HerosType.All) {
+      _herosType = HerosType.Popular;
+      _heros = [
+        for (var heros in _allHeros)
+          if (heros.viewNumber > 40) heros
+      ];
+      return notifyListeners();
+    } else {
+      _herosType = HerosType.All;
+      _heros = List.from(_allHeros);
+      return notifyListeners();
+    }
   }
 }
