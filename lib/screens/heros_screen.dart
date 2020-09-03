@@ -1,5 +1,4 @@
 import 'package:dota_2_hero_app/components/color_container.dart';
-import 'package:dota_2_hero_app/components/diagonal_hero_stack.dart';
 import 'package:dota_2_hero_app/components/hero_list_type.dart';
 import 'package:dota_2_hero_app/components/heroes_grid_view.dart';
 import 'package:dota_2_hero_app/model/heros_list.dart';
@@ -18,9 +17,6 @@ class HerosScreen extends StatefulWidget {
 
 class _HerosScreenState extends State<HerosScreen> {
   int _selectedIndex = 0;
-
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
   void _onItemTapped(int index) {
     switch (index) {

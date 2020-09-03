@@ -1,24 +1,10 @@
+import 'package:dota_2_hero_app/model/hero_class.dart';
 import 'package:flutter/material.dart';
 
 class DiagonalHeroStack extends StatelessWidget {
-  const DiagonalHeroStack(
-      {this.clipPathColor,
-      this.pngName,
-      this.heroName,
-      this.viewNumber,
-      this.bottom,
-      this.right,
-      this.height,
-      this.width});
+  const DiagonalHeroStack({this.hero});
 
-  final Color clipPathColor;
-  final String pngName;
-  final String heroName;
-  final int viewNumber;
-  final double bottom;
-  final double right;
-  final double height;
-  final double width;
+  final HeroClass hero;
 
   @override
   Widget build(BuildContext context) {
@@ -31,16 +17,16 @@ class DiagonalHeroStack extends StatelessWidget {
           child: Container(
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              color: clipPathColor, //Colors.red[300],
+              color: hero.clipPathColor, //Colors.red[300],
             ),
           ),
         ),
         Positioned(
-          bottom: bottom,
-          right: right,
-          height: height,
-          width: width,
-          child: Image.asset('images/$pngName.png'),
+          bottom: hero.bottom,
+          right: hero.right,
+          height: hero.height,
+          width: hero.width,
+          child: Image.asset('images/${hero.pngName}.png'),
         ),
         Positioned(
           bottom: 20.0,
@@ -51,7 +37,7 @@ class DiagonalHeroStack extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 5.0),
                 child: Text(
-                  heroName,
+                  hero.heroName,
                   style: TextStyle(
                       color: Colors.white70,
                       fontWeight: FontWeight.w900,
@@ -59,7 +45,7 @@ class DiagonalHeroStack extends StatelessWidget {
                 ),
               ),
               Text(
-                '${viewNumber}K Views',
+                '${hero.viewNumber}K Views',
                 style: TextStyle(
                     color: Colors.white70,
                     fontWeight: FontWeight.w500,

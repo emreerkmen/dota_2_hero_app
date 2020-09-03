@@ -1,9 +1,11 @@
 import 'package:dota_2_hero_app/components/diagonal_hero_stack.dart';
 import 'package:dota_2_hero_app/model/heros_list.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:provider/provider.dart';
 
 class HeroesGridView extends StatelessWidget {
+  final int pos = 0;
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -16,15 +18,17 @@ class HeroesGridView extends StatelessWidget {
         childAspectRatio: 0.82, // itemWidth / itemHeight = 0.82
         children: <Widget>[
           for (var hero in context.watch<HerosList>().heros)
-            DiagonalHeroStack(
-              clipPathColor: hero.clipPathColor,
-              pngName: hero.pngName,
-              heroName: hero.heroName,
-              viewNumber: hero.viewNumber,
-              bottom: hero.bottom,
-              right: hero.right,
-              height: hero.height,
-              width: hero.width,
+            AnimationConfiguration.staggeredGrid(
+              position: pos + 1,
+              duration: const Duration(milliseconds: 875),
+              columnCount: 2,
+              child: FlipAnimation(
+                child: SlideAnimation(
+                  child: DiagonalHeroStack(
+                    hero: hero,
+                  ),
+                ),
+              ),
             ),
         ],
       ),

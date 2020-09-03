@@ -1,6 +1,5 @@
 import 'package:dota_2_hero_app/components/radio2.dart' as special_version;
 import 'package:dota_2_hero_app/model/heros_list.dart';
-import 'package:dota_2_hero_app/model/theme_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

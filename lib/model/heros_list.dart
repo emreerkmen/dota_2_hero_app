@@ -109,7 +109,7 @@ class HerosList extends ChangeNotifier {
   ];
 
   HerosType _herosType = HerosType.All;
-  
+
   List<HeroClass> _heros;
 
   HerosList() {
