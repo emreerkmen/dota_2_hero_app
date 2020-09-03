@@ -97,14 +97,13 @@ class _HerosScreenState extends State<HerosScreen> {
                 ),
               ),
               HeroListType(),
-              HeroesGridView(heroList: heroList),
+              HeroesGridView(),
               ColorContainer(
                 inChild: Row(
                   children: <Widget>[
                     FlatButton(
                       onPressed: () {
                         context.read<ThemeModel>().toggleTheme();
-                        context.read<HerosList>().toggleHeroesType();
                       },
                       child: Text(
                         "Change Theme",

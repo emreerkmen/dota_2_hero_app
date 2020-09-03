@@ -132,7 +132,7 @@ class HerosList extends ChangeNotifier {
       _herosType = HerosType.Popular;
       _heros = [
         for (var heros in _allHeros)
-          if (heros.viewNumber > 40) heros
+          if (heros.viewNumber > 30) heros
       ];
       return notifyListeners();
     } else {

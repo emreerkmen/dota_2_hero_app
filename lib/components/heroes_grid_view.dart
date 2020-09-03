@@ -3,19 +3,7 @@ import 'package:dota_2_hero_app/model/heros_list.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class HeroesGridView extends StatefulWidget {
-  const HeroesGridView({
-    Key key,
-    @required this.heroList,
-  }) : super(key: key);
-
-  final HerosList heroList;
-
-  @override
-  _HeroesGridViewState createState() => _HeroesGridViewState();
-}
-
-class _HeroesGridViewState extends State<HeroesGridView> {
+class HeroesGridView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
