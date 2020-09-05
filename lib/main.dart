@@ -13,7 +13,7 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
+    return MultiProvider(//You don’t want to place ChangeNotifierProvider higher than necessary (because you don’t want to pollute the scope)
       providers: [
         ChangeNotifierProvider(
           create: (context) => ThemeModel(),
