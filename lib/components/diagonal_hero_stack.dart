@@ -1,5 +1,8 @@
 import 'package:dota_2_hero_app/model/hero_class.dart';
+import 'package:dota_2_hero_app/model/heros_list.dart';
+import 'package:dota_2_hero_app/screens/hero_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class DiagonalHeroStack extends StatelessWidget {
   const DiagonalHeroStack({this.hero});
@@ -8,53 +11,60 @@ class DiagonalHeroStack extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      fit: StackFit.expand,
-      overflow: Overflow.visible,
-      children: <Widget>[
-        ClipPath(
-          clipper: MyCustomClipper(),
-          child: Container(
-            padding: const EdgeInsets.all(8),
-            decoration: BoxDecoration(
-              color: hero.clipPathColor, //Colors.red[300],
+    return FlatButton(
+      padding: EdgeInsets.zero,
+      onPressed: () {
+        context.read<HerosList>().setHero(hero: hero);
+        Navigator.pushNamed(context, HeroScreen.id);
+      },
+      child: Stack(
+        fit: StackFit.expand,
+        overflow: Overflow.visible,
+        children: <Widget>[
+          ClipPath(
+            clipper: MyCustomClipper(),
+            child: Container(
+              padding: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                color: hero.clipPathColor, //Colors.red[300],
+              ),
             ),
           ),
-        ),
-        Positioned(
-          bottom: hero.bottom,
-          right: hero.right,
-          height: hero.height,
-          width: hero.width,
-          child: Image.asset('images/${hero.pngName}.png'),
-        ),
-        Positioned(
-          bottom: 20.0,
-          left: 20.0,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 5.0),
-                child: Text(
-                  hero.heroName,
+          Positioned(
+            bottom: hero.bottom,
+            right: hero.right,
+            height: hero.height,
+            width: hero.width,
+            child: Image.asset('images/${hero.pngName}.png'),
+          ),
+          Positioned(
+            bottom: 20.0,
+            left: 20.0,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 5.0),
+                  child: Text(
+                    hero.heroName,
+                    style: TextStyle(
+                        color: Colors.white70,
+                        fontWeight: FontWeight.w900,
+                        fontSize: 20.0),
+                  ),
+                ),
+                Text(
+                  '${hero.viewNumber}K Views',
                   style: TextStyle(
                       color: Colors.white70,
-                      fontWeight: FontWeight.w900,
-                      fontSize: 20.0),
-                ),
-              ),
-              Text(
-                '${hero.viewNumber}K Views',
-                style: TextStyle(
-                    color: Colors.white70,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 13.0),
-              )
-            ],
-          ),
-        )
-      ],
+                      fontWeight: FontWeight.w500,
+                      fontSize: 13.0),
+                )
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 }

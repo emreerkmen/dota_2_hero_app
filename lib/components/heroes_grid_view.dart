@@ -18,20 +18,24 @@ class HeroesGridView extends StatelessWidget {
         childAspectRatio: 0.82, // itemWidth / itemHeight = 0.82
         children: <Widget>[
           for (var hero in context.watch<HerosList>().heros)
-            AnimationConfiguration.staggeredGrid(
-              position: pos + 1,
-              duration: const Duration(milliseconds: 875),
-              columnCount: 2,
-              child: FlipAnimation(
-                child: SlideAnimation(
-                  child: DiagonalHeroStack(
-                    hero: hero,
-                  ),
-                ),
-              ),
+            DiagonalHeroStack(
+              hero: hero,
             ),
         ],
       ),
     );
   }
 }
+
+// AnimationConfiguration.staggeredGrid(
+//               position: pos + 1,
+//               duration: const Duration(milliseconds: 875),
+//               columnCount: 2,
+//               child: FlipAnimation(
+//                 child: SlideAnimation(
+//                   child: DiagonalHeroStack(
+//                     hero: hero,
+//                   ),
+//                 ),
+//               ),
+//             ),

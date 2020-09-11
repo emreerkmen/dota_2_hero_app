@@ -19,6 +19,7 @@ class HeroClass {
   final double right;
   final double height;
   final double width;
+  final List<String> heroClass;
 
   HeroClass(
       {this.heroName,
@@ -28,5 +29,6 @@ class HeroClass {
       this.bottom,
       this.right,
       this.height,
-      this.width});
+      this.width,
+      this.heroClass});
 }

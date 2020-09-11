@@ -2,32 +2,29 @@ import 'package:dota_2_hero_app/components/color_container.dart';
 import 'package:dota_2_hero_app/components/hero_list_type.dart';
 import 'package:dota_2_hero_app/components/heroes_grid_view.dart';
 import 'package:dota_2_hero_app/model/heros_list.dart';
-import 'package:dota_2_hero_app/screens/matches_screen.dart';
+import 'package:dota_2_hero_app/screens/settings_screen.dart';
 import 'package:dota_2_hero_app/screens/streams_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:dota_2_hero_app/model/theme_model.dart';
-
-class HerosScreen extends StatefulWidget {
-  static const String id = 'heros_screen';
+class MainHerosScreen extends StatefulWidget {
+  static const String id = 'main_heros_screen';
 
   @override
-  _HerosScreenState createState() => _HerosScreenState();
+  _MainHerosScreenState createState() => _MainHerosScreenState();
 }
 
-class _HerosScreenState extends State<HerosScreen> {
+class _MainHerosScreenState extends State<MainHerosScreen> {
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
     switch (index) {
       case 0:
-        Navigator.pushNamed(context, HerosScreen.id);
+        Navigator.pushNamed(context, MainHerosScreen.id);
         break;
       case 1:
         Navigator.pushNamed(context, StreamsScreen.id);
         break;
       case 2:
-        Navigator.pushNamed(context, MatchesScreen.id);
+        Navigator.pushNamed(context, SettingsScreen.id);
         break;
     }
 
@@ -94,20 +91,6 @@ class _HerosScreenState extends State<HerosScreen> {
               ),
               HeroListType(),
               HeroesGridView(),
-              ColorContainer(
-                inChild: Row(
-                  children: <Widget>[
-                    FlatButton(
-                      onPressed: () {
-                        context.read<ThemeModel>().toggleTheme();
-                      },
-                      child: Text(
-                        "Change Theme",
-                      ),
-                    ),
-                  ],
-                ),
-              )
             ],
           ),
         ),
@@ -123,7 +106,7 @@ class _HerosScreenState extends State<HerosScreen> {
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.school),
-              title: Text('Match'),
+              title: Text('Settings'),//This can change to "Match" again
             ),
           ],
           currentIndex: _selectedIndex,

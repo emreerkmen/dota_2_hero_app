@@ -8,14 +8,16 @@ class HerosList extends ChangeNotifier {
   // var lst = new List(3) --> Fixed List, var  lst = [val1,val2,val3] or var lst = new List() --> Growable List
   final List<HeroClass> _allHeros = [
     HeroClass(
-        heroName: 'Juggernaunt',
-        pngName: 'juggernaut',
-        viewNumber: 35,
-        clipPathColor: Color(0xffc43a3d),
-        bottom: 15.0,
-        right: -65.0,
-        height: 210.0,
-        width: 250.0),
+      heroName: 'Juggernaunt',
+      pngName: 'juggernaut',
+      viewNumber: 35,
+      clipPathColor: Color(0xffc43a3d),
+      bottom: 15.0,
+      right: -65.0,
+      height: 210.0,
+      width: 250.0,
+      heroClass: ['Carry', 'Pusher'],
+    ),
     HeroClass(
       clipPathColor: Colors.purple[800],
       pngName: 'ogremagi',
@@ -25,6 +27,7 @@ class HerosList extends ChangeNotifier {
       right: -27,
       height: 290,
       width: 250,
+      heroClass: ['Carry', 'Pusher'],
     ),
     HeroClass(
       clipPathColor: Color(0xff4650C8),
@@ -35,6 +38,7 @@ class HerosList extends ChangeNotifier {
       right: -65,
       height: 245,
       width: 250,
+      heroClass: ['Carry', 'Pusher'],
     ),
     HeroClass(
       clipPathColor: Color(0xff0e5f7f),
@@ -45,6 +49,7 @@ class HerosList extends ChangeNotifier {
       right: -38,
       height: 255,
       width: 250,
+      heroClass: ['Carry', 'Pusher'],
     ),
     HeroClass(
       clipPathColor: Color(0xffb71b1b),
@@ -55,6 +60,7 @@ class HerosList extends ChangeNotifier {
       right: -58,
       height: 180,
       width: 250,
+      heroClass: ['Carry', 'Pusher'],
     ),
     HeroClass(
       clipPathColor: Color(0xff1f95a3),
@@ -65,6 +71,7 @@ class HerosList extends ChangeNotifier {
       right: -39,
       height: 200,
       width: 250,
+      heroClass: ['Carry', 'Pusher'],
     ),
     HeroClass(
       clipPathColor: Color(0xff6144e2),
@@ -75,6 +82,7 @@ class HerosList extends ChangeNotifier {
       right: -45,
       height: 250,
       width: 250,
+      heroClass: ['Carry', 'Pusher'],
     ),
     HeroClass(
       clipPathColor: Color(0xff561515),
@@ -85,6 +93,7 @@ class HerosList extends ChangeNotifier {
       right: -45,
       height: 230,
       width: 250,
+      heroClass: ['Carry', 'Pusher'],
     ),
     HeroClass(
       clipPathColor: Color(0xff0c3554),
@@ -95,6 +104,7 @@ class HerosList extends ChangeNotifier {
       right: -90,
       height: 230,
       width: 250,
+      heroClass: ['Carry', 'Pusher'],
     ),
     HeroClass(
       clipPathColor: Color(0xff4f0000),
@@ -105,12 +115,15 @@ class HerosList extends ChangeNotifier {
       right: -60,
       height: 200,
       width: 250,
+      heroClass: ['Carry', 'Pusher'],
     ),
   ];
 
   HerosType _herosType = HerosType.All;
 
   List<HeroClass> _heros;
+
+  HeroClass _selectedHero;
 
   HerosList() {
     _heros = List.from(_allHeros);
@@ -124,6 +137,10 @@ class HerosList extends ChangeNotifier {
         for (var heros in _allHeros)
           if (heros.viewNumber > 10) heros
       ];
+
+  HeroClass get selectedHero => _selectedHero;
+
+  set setSelectedHero(HeroClass hero) => _selectedHero = hero;
 
   void toggleHeroesType() {
     //https://github.com/dart-lang/language/blob/master/accepted/2.3/spread-collections/feature-specification.md
@@ -141,4 +158,6 @@ class HerosList extends ChangeNotifier {
       return notifyListeners();
     }
   }
+
+  void setHero({HeroClass hero}) => _selectedHero = hero;
 }
