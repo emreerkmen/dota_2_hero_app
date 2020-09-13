@@ -17,6 +17,13 @@ class HerosList extends ChangeNotifier {
       height: 210.0,
       width: 250.0,
       heroClass: ['Carry', 'Pusher'],
+      heroSkills: [
+        ['Blade Fury', 'Blade_Fury_icon.png'],
+        ['Healing Ward', 'Healing_Ward_icon.png'],
+        ['Blade Dance', 'Blade_Dance_icon.png'],
+        ['Omnislash', 'Omnislash_icon.png'],
+        ['Swiftslash', 'Swiftslash_icon.png'],
+      ],
     ),
     HeroClass(
       clipPathColor: Colors.purple[800],
