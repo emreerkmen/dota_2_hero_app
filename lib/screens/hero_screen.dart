@@ -117,14 +117,17 @@ class HeroScreen extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         for (var item in hero.heroSkills)
                           Padding(
                             padding:
-                                const EdgeInsets.fromLTRB(0, 15.0, 14.0, 15.0),
+                                const EdgeInsets.fromLTRB(0, 15.0, 0.0, 15.0),
                             child: Container(
+                              width: 100.0,
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Padding(
                                     padding: const EdgeInsets.fromLTRB(
