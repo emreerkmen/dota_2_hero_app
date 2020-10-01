@@ -2,6 +2,7 @@ import 'package:dota_2_hero_app/components/color_container.dart';
 import 'package:dota_2_hero_app/model/hero_class.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:dota_2_hero_app/components/hero_skill_stats.dart' as component;
 
 class HeroScreen extends StatelessWidget {
   static const String id = 'hero_screen';
@@ -166,72 +167,10 @@ class HeroScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                Container(
-                  child: Padding(
-                    padding: const EdgeInsets.fromLTRB(0, 15.0, 0.0, 15.0),
-                    child: RichText(
-                      text: TextSpan(
-                        style: TextStyle(fontSize: 16.0),
-                        children: <TextSpan>[
-                          TextSpan(
-                              text: 'STR ',
-                              style: TextStyle(fontWeight: FontWeight.w600)),
-                          TextSpan(
-                              text: '76 ',
-                              style: TextStyle(
-                                  color: Colors.greenAccent[400],
-                                  fontWeight: FontWeight.w700)),
-                          TextSpan(
-                            text: 'at 25 (21+2.2/Level)',
-                            style: TextStyle(),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                Stack(
-                  children: <Widget>[
-                    Container(
-                      height: 7.0,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(5)),
-                          color: Colors.white12),
-                    ),
-                    Container(
-                      height: 7.0,
-                      width: 120.0,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(5)),
-                          color: hero.clipPathColor),
-                    ),
-                  ],
-                ),
-                Container(
-                  child: Padding(
-                    padding: const EdgeInsets.fromLTRB(0, 15.0, 0.0, 15.0),
-                    child: RichText(
-                      text: TextSpan(
-                        style: TextStyle(fontSize: 16.0),
-                        children: <TextSpan>[
-                          TextSpan(
-                              text: 'STR ',
-                              style: TextStyle(fontWeight: FontWeight.w600)),
-                          TextSpan(
-                              text: '76 ',
-                              style: TextStyle(
-                                  color: Colors.greenAccent[400],
-                                  fontWeight: FontWeight.w700)),
-                          TextSpan(
-                            text: 'at 25 (21+2.2/Level)',
-                            style: TextStyle(),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
+                component.HeroSkillStats(
+                    heroSkillStats: hero.str, color: hero.clipPathColor),
+                component.HeroSkillStats(
+                    heroSkillStats: hero.agi, color: hero.clipPathColor),
               ],
             ),
           ),

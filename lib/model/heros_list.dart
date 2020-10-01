@@ -24,6 +24,8 @@ class HerosList extends ChangeNotifier {
         ['Omnislash', 'Omnislash_icon.png'],
         ['Swiftslash', 'Swiftslash_icon.png'],
       ],
+      str: HeroSkillStats(statType: 'STR', firstValue: 21, everyLevelValue: 2.2),
+      agi: HeroSkillStats(statType: 'AGI', firstValue: 34, everyLevelValue: 2.8),
     ),
     HeroClass(
       clipPathColor: Colors.purple[800],
