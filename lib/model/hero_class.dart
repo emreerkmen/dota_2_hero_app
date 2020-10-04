@@ -21,8 +21,7 @@ class HeroClass {
   final double width;
   final List<String> heroClass;
   final List<List<String>> heroSkills;
-  final HeroSkillStats str;
-  final HeroSkillStats agi;
+  final List<HeroSkillStats> stats;
 
   HeroClass(
       {this.heroName,
@@ -35,13 +34,12 @@ class HeroClass {
       this.width,
       this.heroClass,
       this.heroSkills,
-      this.str,
-      this.agi});
+      this.stats});
 }
 
 class HeroSkillStats {
   final String statType;
   final double firstValue;
   final double everyLevelValue;
-  HeroSkillStats({this.statType,this.firstValue, this.everyLevelValue});
+  HeroSkillStats({this.statType, this.firstValue, this.everyLevelValue});
 }

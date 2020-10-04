@@ -5,6 +5,7 @@ import 'package:dota_2_hero_app/model/heros_list.dart';
 import 'package:dota_2_hero_app/screens/settings_screen.dart';
 import 'package:dota_2_hero_app/screens/streams_screen.dart';
 import 'package:flutter/material.dart';
+
 class MainHerosScreen extends StatefulWidget {
   static const String id = 'main_heros_screen';
 
@@ -97,20 +98,29 @@ class _MainHerosScreenState extends State<MainHerosScreen> {
         bottomNavigationBar: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: Icon(Icons.home),
+              icon: Icon(
+                Icons.home,
+              ),
               title: Text('Tutorial'),
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.business),
+              icon: Icon(
+                Icons.business,
+              ),
               title: Text('Stream'),
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.school),
-              title: Text('Settings'),//This can change to "Match" again
+              icon: Icon(
+                Icons.school,
+              ),
+              title: Text('Settings'), //This can change to "Match" again
             ),
           ],
           currentIndex: _selectedIndex,
-          selectedItemColor: Colors.red[800],
+          selectedItemColor: Colors.red,
+          unselectedItemColor: Color(0xffCFCBD9),
+          selectedIconTheme: IconThemeData(color: Colors.red),
+          unselectedIconTheme: IconThemeData(color: Color(0xffCFCBD9)),
           onTap: _onItemTapped,
           backgroundColor: Theme.of(context).primaryColor,
         ),

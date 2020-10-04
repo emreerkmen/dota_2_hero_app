@@ -24,8 +24,11 @@ class HerosList extends ChangeNotifier {
         ['Omnislash', 'Omnislash_icon.png'],
         ['Swiftslash', 'Swiftslash_icon.png'],
       ],
-      str: HeroSkillStats(statType: 'STR', firstValue: 21, everyLevelValue: 2.2),
-      agi: HeroSkillStats(statType: 'AGI', firstValue: 34, everyLevelValue: 2.8),
+      stats: [
+        HeroSkillStats(statType: 'STR', firstValue: 21, everyLevelValue: 2.2),
+        HeroSkillStats(statType: 'AGI', firstValue: 34, everyLevelValue: 2.8),
+        HeroSkillStats(statType: 'INT', firstValue: 14, everyLevelValue: 1.4),
+      ],
     ),
     HeroClass(
       clipPathColor: Colors.purple[800],
@@ -37,6 +40,18 @@ class HerosList extends ChangeNotifier {
       height: 290,
       width: 250,
       heroClass: ['Carry', 'Pusher'],
+      heroSkills: [
+        ['Blade Fury', 'Blade_Fury_icon.png'],
+        ['Healing Ward', 'Healing_Ward_icon.png'],
+        ['Blade Dance', 'Blade_Dance_icon.png'],
+        ['Omnislash', 'Omnislash_icon.png'],
+        ['Swiftslash', 'Swiftslash_icon.png'],
+      ],
+      stats: [
+        HeroSkillStats(statType: 'STR', firstValue: 21, everyLevelValue: 2.2),
+        HeroSkillStats(statType: 'AGI', firstValue: 34, everyLevelValue: 2.8),
+        HeroSkillStats(statType: 'INT', firstValue: 14, everyLevelValue: 1.4),
+      ],
     ),
     HeroClass(
       clipPathColor: Color(0xff4650C8),
@@ -48,6 +63,18 @@ class HerosList extends ChangeNotifier {
       height: 245,
       width: 250,
       heroClass: ['Carry', 'Pusher'],
+      heroSkills: [
+        ['Blade Fury', 'Blade_Fury_icon.png'],
+        ['Healing Ward', 'Healing_Ward_icon.png'],
+        ['Blade Dance', 'Blade_Dance_icon.png'],
+        ['Omnislash', 'Omnislash_icon.png'],
+        ['Swiftslash', 'Swiftslash_icon.png'],
+      ],
+      stats: [
+        HeroSkillStats(statType: 'STR', firstValue: 21, everyLevelValue: 2.2),
+        HeroSkillStats(statType: 'AGI', firstValue: 34, everyLevelValue: 2.8),
+        HeroSkillStats(statType: 'INT', firstValue: 14, everyLevelValue: 1.4),
+      ],
     ),
     HeroClass(
       clipPathColor: Color(0xff0e5f7f),
@@ -59,6 +86,18 @@ class HerosList extends ChangeNotifier {
       height: 255,
       width: 250,
       heroClass: ['Carry', 'Pusher'],
+      heroSkills: [
+        ['Blade Fury', 'Blade_Fury_icon.png'],
+        ['Healing Ward', 'Healing_Ward_icon.png'],
+        ['Blade Dance', 'Blade_Dance_icon.png'],
+        ['Omnislash', 'Omnislash_icon.png'],
+        ['Swiftslash', 'Swiftslash_icon.png'],
+      ],
+      stats: [
+        HeroSkillStats(statType: 'STR', firstValue: 21, everyLevelValue: 2.2),
+        HeroSkillStats(statType: 'AGI', firstValue: 34, everyLevelValue: 2.8),
+        HeroSkillStats(statType: 'INT', firstValue: 14, everyLevelValue: 1.4),
+      ],
     ),
     HeroClass(
       clipPathColor: Color(0xffb71b1b),
@@ -70,6 +109,18 @@ class HerosList extends ChangeNotifier {
       height: 180,
       width: 250,
       heroClass: ['Carry', 'Pusher'],
+      heroSkills: [
+        ['Blade Fury', 'Blade_Fury_icon.png'],
+        ['Healing Ward', 'Healing_Ward_icon.png'],
+        ['Blade Dance', 'Blade_Dance_icon.png'],
+        ['Omnislash', 'Omnislash_icon.png'],
+        ['Swiftslash', 'Swiftslash_icon.png'],
+      ],
+      stats: [
+        HeroSkillStats(statType: 'STR', firstValue: 21, everyLevelValue: 2.2),
+        HeroSkillStats(statType: 'AGI', firstValue: 34, everyLevelValue: 2.8),
+        HeroSkillStats(statType: 'INT', firstValue: 14, everyLevelValue: 1.4),
+      ],
     ),
     HeroClass(
       clipPathColor: Color(0xff1f95a3),
@@ -81,6 +132,18 @@ class HerosList extends ChangeNotifier {
       height: 200,
       width: 250,
       heroClass: ['Carry', 'Pusher'],
+      heroSkills: [
+        ['Blade Fury', 'Blade_Fury_icon.png'],
+        ['Healing Ward', 'Healing_Ward_icon.png'],
+        ['Blade Dance', 'Blade_Dance_icon.png'],
+        ['Omnislash', 'Omnislash_icon.png'],
+        ['Swiftslash', 'Swiftslash_icon.png'],
+      ],
+      stats: [
+        HeroSkillStats(statType: 'STR', firstValue: 21, everyLevelValue: 2.2),
+        HeroSkillStats(statType: 'AGI', firstValue: 34, everyLevelValue: 2.8),
+        HeroSkillStats(statType: 'INT', firstValue: 14, everyLevelValue: 1.4),
+      ],
     ),
     HeroClass(
       clipPathColor: Color(0xff6144e2),
@@ -92,6 +155,18 @@ class HerosList extends ChangeNotifier {
       height: 250,
       width: 250,
       heroClass: ['Carry', 'Pusher'],
+      heroSkills: [
+        ['Blade Fury', 'Blade_Fury_icon.png'],
+        ['Healing Ward', 'Healing_Ward_icon.png'],
+        ['Blade Dance', 'Blade_Dance_icon.png'],
+        ['Omnislash', 'Omnislash_icon.png'],
+        ['Swiftslash', 'Swiftslash_icon.png'],
+      ],
+      stats: [
+        HeroSkillStats(statType: 'STR', firstValue: 21, everyLevelValue: 2.2),
+        HeroSkillStats(statType: 'AGI', firstValue: 34, everyLevelValue: 2.8),
+        HeroSkillStats(statType: 'INT', firstValue: 14, everyLevelValue: 1.4),
+      ],
     ),
     HeroClass(
       clipPathColor: Color(0xff561515),
@@ -103,6 +178,18 @@ class HerosList extends ChangeNotifier {
       height: 230,
       width: 250,
       heroClass: ['Carry', 'Pusher'],
+      heroSkills: [
+        ['Blade Fury', 'Blade_Fury_icon.png'],
+        ['Healing Ward', 'Healing_Ward_icon.png'],
+        ['Blade Dance', 'Blade_Dance_icon.png'],
+        ['Omnislash', 'Omnislash_icon.png'],
+        ['Swiftslash', 'Swiftslash_icon.png'],
+      ],
+      stats: [
+        HeroSkillStats(statType: 'STR', firstValue: 21, everyLevelValue: 2.2),
+        HeroSkillStats(statType: 'AGI', firstValue: 34, everyLevelValue: 2.8),
+        HeroSkillStats(statType: 'INT', firstValue: 14, everyLevelValue: 1.4),
+      ],
     ),
     HeroClass(
       clipPathColor: Color(0xff0c3554),
@@ -114,6 +201,18 @@ class HerosList extends ChangeNotifier {
       height: 230,
       width: 250,
       heroClass: ['Carry', 'Pusher'],
+      heroSkills: [
+        ['Blade Fury', 'Blade_Fury_icon.png'],
+        ['Healing Ward', 'Healing_Ward_icon.png'],
+        ['Blade Dance', 'Blade_Dance_icon.png'],
+        ['Omnislash', 'Omnislash_icon.png'],
+        ['Swiftslash', 'Swiftslash_icon.png'],
+      ],
+      stats: [
+        HeroSkillStats(statType: 'STR', firstValue: 21, everyLevelValue: 2.2),
+        HeroSkillStats(statType: 'AGI', firstValue: 34, everyLevelValue: 2.8),
+        HeroSkillStats(statType: 'INT', firstValue: 14, everyLevelValue: 1.4),
+      ],
     ),
     HeroClass(
       clipPathColor: Color(0xff4f0000),
@@ -125,6 +224,18 @@ class HerosList extends ChangeNotifier {
       height: 200,
       width: 250,
       heroClass: ['Carry', 'Pusher'],
+      heroSkills: [
+        ['Blade Fury', 'Blade_Fury_icon.png'],
+        ['Healing Ward', 'Healing_Ward_icon.png'],
+        ['Blade Dance', 'Blade_Dance_icon.png'],
+        ['Omnislash', 'Omnislash_icon.png'],
+        ['Swiftslash', 'Swiftslash_icon.png'],
+      ],
+      stats: [
+        HeroSkillStats(statType: 'STR', firstValue: 21, everyLevelValue: 2.2),
+        HeroSkillStats(statType: 'AGI', firstValue: 34, everyLevelValue: 2.8),
+        HeroSkillStats(statType: 'INT', firstValue: 14, everyLevelValue: 1.4),
+      ],
     ),
   ];
 
