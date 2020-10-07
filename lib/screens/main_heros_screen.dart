@@ -101,19 +101,19 @@ class _MainHerosScreenState extends State<MainHerosScreen> {
               icon: Icon(
                 Icons.home,
               ),
-              title: Text('Tutorial'),
+              label: 'Tutorial',
             ),
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.business,
               ),
-              title: Text('Stream'),
+              label: 'Stream',
             ),
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.school,
               ),
-              title: Text('Settings'), //This can change to "Match" again
+              label: 'Settings', //This can change to "Match" again
             ),
           ],
           currentIndex: _selectedIndex,
