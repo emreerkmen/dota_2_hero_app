@@ -3,15 +3,7 @@ import 'package:dota_2_hero_app/model/heros_list.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-enum HeroList { allHero, popular }
-
-class HeroListType extends StatefulWidget {
-  @override
-  _HeroListTypeState createState() => _HeroListTypeState();
-}
-
-class _HeroListTypeState extends State<HeroListType> {
-  HeroList _listType = HeroList.allHero;
+class HeroListType extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -39,13 +31,10 @@ class _HeroListTypeState extends State<HeroListType> {
                     ),
                     special_version.Radio(
                       materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                      value: HeroList.allHero,
-                      groupValue: _listType,
-                      onChanged: (HeroList value) {
+                      value: HerosType.All,
+                      groupValue: context.watch<HerosList>().getHeroesType(),
+                      onChanged: (HerosType value) {
                         context.read<HerosList>().toggleHeroesType();
-                        setState(() {
-                          _listType = value;
-                        });
                       },
                       activeColor: Colors.red[800],
                     ),
@@ -75,13 +64,10 @@ class _HeroListTypeState extends State<HeroListType> {
                     ),
                     special_version.Radio(
                       materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                      value: HeroList.popular,
-                      groupValue: _listType,
-                      onChanged: (HeroList value) {
+                      value: HerosType.Popular,
+                      groupValue: context.watch<HerosList>().getHeroesType(),
+                      onChanged: (HerosType value) {
                         context.read<HerosList>().toggleHeroesType();
-                        setState(() {
-                          _listType = value;
-                        });
                       },
                       activeColor: Colors.red[800],
                       focusColor: Colors.yellow,

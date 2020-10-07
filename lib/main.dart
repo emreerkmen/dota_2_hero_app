@@ -44,10 +44,8 @@ class MyHomePage extends StatelessWidget {
         MainHerosScreen.id: (context) => MainHerosScreen(),
         StreamsScreen.id: (context) => StreamsScreen(),
         SettingsScreen.id: (context) => SettingsScreen(),
-        HeroScreen.id: (context) => HeroScreen(
-            hero: context
-                .watch<HerosList>()
-                .selectedHero), 
+        HeroScreen.id: (context) =>
+            HeroScreen(hero: context.watch<HerosList>().selectedHero),
         //ChatScreen.id: (context) => ChatScreen(),
       },
     );

@@ -1,7 +1,6 @@
 import 'package:dota_2_hero_app/components/diagonal_hero_stack.dart';
 import 'package:dota_2_hero_app/model/heros_list.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:provider/provider.dart';
 
 class HeroesGridView extends StatelessWidget {

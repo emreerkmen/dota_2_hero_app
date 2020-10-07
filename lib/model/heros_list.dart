@@ -280,4 +280,8 @@ class HerosList extends ChangeNotifier {
   }
 
   void setHero({HeroClass hero}) => _selectedHero = hero;
+
+  HerosType getHeroesType() {
+    return _herosType;
+  }
 }

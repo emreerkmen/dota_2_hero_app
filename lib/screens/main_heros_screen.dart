@@ -30,7 +30,7 @@ class _MainHerosScreenState extends State<MainHerosScreen> {
     }
 
     setState(() {
-      _selectedIndex = index;
+      _selectedIndex = 0;
     });
   }
 
