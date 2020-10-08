@@ -111,7 +111,7 @@ class _MainHerosScreenState extends State<MainHerosScreen> {
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                Icons.school,
+                Icons.settings,
               ),
               label: 'Settings', //This can change to "Match" again
             ),

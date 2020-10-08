@@ -8,19 +8,22 @@ class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: ColorContainer(
-        inChild: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            FlatButton(
-              onPressed: () {
-                context.read<ThemeModel>().toggleTheme();
-              },
-              child: Text(
-                "Change Theme",
+      child: Center(
+        child: ColorContainer(
+          inChild: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              FlatButton(
+                onPressed: () {
+                  context.read<ThemeModel>().toggleTheme();
+                },
+                child: Text(
+                  "Change Theme",
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

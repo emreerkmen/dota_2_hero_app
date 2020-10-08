@@ -19,8 +19,11 @@ class HeroSkillStats extends StatelessWidget {
                 style: TextStyle(fontSize: 16.0),
                 children: <TextSpan>[
                   TextSpan(
-                      text: heroSkillStats.statType,
-                      style: TextStyle(fontWeight: FontWeight.w600)),
+                    text: heroSkillStats.statType,
+                    style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        color: Theme.of(context).primaryColorLight),
+                  ),
                   TextSpan(
                       text: ' ' +
                           (heroSkillStats.firstValue +
@@ -33,7 +36,8 @@ class HeroSkillStats extends StatelessWidget {
                   TextSpan(
                     text:
                         ' at 25 (${heroSkillStats.firstValue}+${heroSkillStats.everyLevelValue}/Level)',
-                    style: TextStyle(),
+                    style:
+                        TextStyle(color: Theme.of(context).primaryColorLight),
                   ),
                 ],
               ),

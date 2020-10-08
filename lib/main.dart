@@ -2,7 +2,6 @@ import 'package:dota_2_hero_app/model/heros_list.dart';
 import 'package:dota_2_hero_app/model/theme_model.dart';
 import 'package:dota_2_hero_app/screens/hero_screen.dart';
 import 'package:dota_2_hero_app/screens/main_heros_screen.dart';
-import 'package:dota_2_hero_app/screens/matches_screen.dart';
 import 'package:dota_2_hero_app/screens/settings_screen.dart';
 import 'package:dota_2_hero_app/screens/streams_screen.dart';
 import 'package:flutter/material.dart';

@@ -148,10 +148,9 @@ class HeroScreen extends StatelessWidget {
                                         ),
                                         Text(
                                           item[0],
-                                          style: GoogleFonts.montserrat(
-                                            color: Colors.white,
-                                            fontSize: 14.0,
-                                          ),
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .headline5,
                                         )
                                       ],
                                     ),
@@ -195,7 +194,7 @@ class HeroScreen extends StatelessWidget {
                 height: 120.0,
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
-                  color: Color(0xff14141c),
+                  color: Theme.of(context).accentColor,
                   borderRadius: BorderRadius.vertical(
                     top: Radius.circular(40.0),
                     bottom: Radius.circular(30.0),
