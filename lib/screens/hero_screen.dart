@@ -1,16 +1,69 @@
+import 'dart:async';
+
 import 'package:dota_2_hero_app/components/color_container.dart';
 import 'package:dota_2_hero_app/model/hero_class.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:dota_2_hero_app/components/hero_skill_stats.dart' as component;
 
-class HeroScreen extends StatelessWidget {
+class HeroScreen extends StatefulWidget {
   static const String id = 'hero_screen';
   HeroScreen({
     @required this.hero,
   });
 
   final HeroClass hero;
+
+  @override
+  _HeroScreenState createState() => _HeroScreenState();
+}
+
+class _HeroScreenState extends State<HeroScreen> {
+  bool _move = false;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    nearlyImmediateTimer();
+    startTimer();
+  }
+
+  Timer _timer;
+
+  void startTimer() {
+    const oneSec = const Duration(seconds: 1);
+
+    _timer = new Timer.periodic(
+      oneSec,
+      (Timer timer) => setState(
+        () {
+          _move = !_move;
+        },
+      ),
+    );
+  }
+
+  static const ms = const Duration(milliseconds: 1);
+  //When screen open, animation doesn't trigger because it's waiting 1 second
+  //to setState dueto timer.period. So we change state after 1 miliseconds 
+  //when screen open
+  nearlyImmediateTimer() {
+    var duration = ms;
+    return new Timer(duration, nearlyImmediateSetState);
+  }
+
+  void nearlyImmediateSetState() {
+    setState(() {
+      _move = !_move;
+    });
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -29,13 +82,35 @@ class HeroScreen extends StatelessWidget {
                         child: Stack(
                           overflow: Overflow.visible,
                           children: <Widget>[
-                            Container(
-                              child: Padding(
-                                padding: const EdgeInsets.fromLTRB(0, 5, 5, 30),
-                                child: Image.asset(
-                                  'images/${hero.pngName}.png',
-                                  width: 500.0,
-                                  height: 350.0,
+                            GestureDetector(
+                              onTap: () {
+                                //print('basıldı.');
+                                setState(() {
+                                  _move = !_move;
+                                });
+                              },
+                              child: AnimatedContainer(
+                                decoration: BoxDecoration(
+                                  gradient: RadialGradient(
+                                    radius: _move ? 0.5 : 0.4,
+                                    center: Alignment.center,
+                                    colors: [
+                                      widget.hero.clipPathColor,
+                                      Colors.black
+                                    ],
+                                    stops: [0.4, 1.0],
+                                  ),
+                                ),
+                                duration: Duration(seconds: 1),
+                                curve: Curves.easeInOut,
+                                child: Padding(
+                                  padding:
+                                      const EdgeInsets.fromLTRB(0, 5, 5, 30),
+                                  child: Image.asset(
+                                    'images/${widget.hero.pngName}.png',
+                                    width: 500.0,
+                                    height: 350.0,
+                                  ),
                                 ),
                               ),
                             ),
@@ -47,7 +122,7 @@ class HeroScreen extends StatelessWidget {
                                 children: <Widget>[
                                   Container(
                                     decoration: BoxDecoration(
-                                      color: hero.clipPathColor,
+                                      color: widget.hero.clipPathColor,
                                       borderRadius: BorderRadius.circular(5),
                                     ),
                                     padding: EdgeInsets.all(4),
@@ -55,7 +130,8 @@ class HeroScreen extends StatelessWidget {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceEvenly,
                                       children: [
-                                        for (String item in hero?.heroClass)
+                                        for (String item
+                                            in widget.hero?.heroClass)
                                           Center(
                                             child: Container(
                                               padding: EdgeInsets.symmetric(
@@ -79,7 +155,7 @@ class HeroScreen extends StatelessWidget {
                                     padding: const EdgeInsets.symmetric(
                                         vertical: 5.0),
                                     child: Text(
-                                      hero.heroName,
+                                      widget.hero.heroName,
                                       style:
                                           Theme.of(context).textTheme.headline6,
                                     ),
@@ -111,7 +187,7 @@ class HeroScreen extends StatelessWidget {
                           child: Text(
                             'Hero Skills',
                             style: TextStyle(
-                                color: hero.clipPathColor,
+                                color: widget.hero.clipPathColor,
                                 fontSize: 15.0,
                                 fontWeight: FontWeight.w700),
                           ),
@@ -125,7 +201,7 @@ class HeroScreen extends StatelessWidget {
                             mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              for (var item in hero.heroSkills)
+                              for (var item in widget.hero.heroSkills)
                                 Padding(
                                   padding: const EdgeInsets.fromLTRB(
                                       0, 15.0, 0.0, 15.0),
@@ -166,16 +242,16 @@ class HeroScreen extends StatelessWidget {
                           child: Text(
                             'Hero Stats',
                             style: TextStyle(
-                                color: hero.clipPathColor,
+                                color: widget.hero.clipPathColor,
                                 fontSize: 15.0,
                                 fontWeight: FontWeight.w700),
                           ),
                         ),
                       ),
-                      for (var heroSkillStat in hero.stats)
+                      for (var heroSkillStat in widget.hero.stats)
                         component.HeroSkillStats(
                             heroSkillStats: heroSkillStat,
-                            color: hero.clipPathColor),
+                            color: widget.hero.clipPathColor),
                       Container(
                         height: 130.0,
                         width: MediaQuery.of(context).size.width,
@@ -211,7 +287,8 @@ class HeroScreen extends StatelessWidget {
                           children: <TextSpan>[
                             TextSpan(text: '7 Streamer '),
                             TextSpan(
-                                style: TextStyle(color: hero.clipPathColor),
+                                style:
+                                    TextStyle(color: widget.hero.clipPathColor),
                                 text: 'Available '),
                           ],
                         ),
@@ -251,7 +328,7 @@ class HeroScreen extends StatelessWidget {
                                         child: Text(
                                           '+5',
                                           style: TextStyle(
-                                              color: hero.clipPathColor,
+                                              color: widget.hero.clipPathColor,
                                               fontSize: 18.0),
                                         ),
                                       ),
@@ -264,7 +341,7 @@ class HeroScreen extends StatelessWidget {
                               height: 50.0,
                               width: 170.0,
                               decoration: BoxDecoration(
-                                color: hero.clipPathColor,
+                                color: widget.hero.clipPathColor,
                                 borderRadius: BorderRadius.circular(50.0),
                               ),
                               child: Center(
