@@ -1,6 +1,6 @@
 import 'dart:async';
-
 import 'package:dota_2_hero_app/components/color_container.dart';
+import 'package:dota_2_hero_app/components/hero_skill_images.dart';
 import 'package:dota_2_hero_app/model/hero_class.dart';
 import 'package:flutter/material.dart';
 import 'package:dota_2_hero_app/components/hero_skill_stats.dart' as component;
@@ -45,7 +45,7 @@ class _HeroScreenState extends State<HeroScreen> {
 
   static const ms = const Duration(milliseconds: 1);
   //When screen open, animation doesn't trigger because it's waiting 1 second
-  //to setState dueto timer.period. So we change state after 1 miliseconds 
+  //to setState dueto timer.period. So we change state after 1 miliseconds
   //when screen open
   nearlyImmediateTimer() {
     var duration = ms;
@@ -202,35 +202,8 @@ class _HeroScreenState extends State<HeroScreen> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               for (var item in widget.hero.heroSkills)
-                                Padding(
-                                  padding: const EdgeInsets.fromLTRB(
-                                      0, 15.0, 0.0, 15.0),
-                                  child: Container(
-                                    width: 100.0,
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        Padding(
-                                          padding: const EdgeInsets.fromLTRB(
-                                              0, 0, 0, 15.0),
-                                          child: CircleAvatar(
-                                            radius: 30.0,
-                                            backgroundImage: AssetImage(
-                                              'images/${item[1]}',
-                                            ),
-                                          ),
-                                        ),
-                                        Text(
-                                          item[0],
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .headline5,
-                                        )
-                                      ],
-                                    ),
-                                  ),
+                                HeroSkillImages(//Spareting Hero skill images with making new widget, provides to usage of animation tween separately. If we use widget code below for without making new widget, all the hero skill images rotate same time. 
+                                  heroSkill: item,
                                 ),
                             ],
                           ),
