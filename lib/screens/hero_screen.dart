@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'package:dota_2_hero_app/components/color_container.dart';
 import 'package:dota_2_hero_app/components/hero_skill_images.dart';
 import 'package:dota_2_hero_app/model/hero_class.dart';
@@ -17,50 +16,37 @@ class HeroScreen extends StatefulWidget {
   _HeroScreenState createState() => _HeroScreenState();
 }
 
-class _HeroScreenState extends State<HeroScreen> {
-  bool _move = false;
+class _HeroScreenState extends State<HeroScreen>
+    with SingleTickerProviderStateMixin {
+
+AnimationController _animationController;
+  //Animation<double> _radiusAnimation;
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    nearlyImmediateTimer();
-    startTimer();
-  }
 
-  Timer _timer;
+    _animationController = AnimationController(
+      duration: Duration(seconds: 1, milliseconds: 500),
+      vsync: this,
+    )..repeat(reverse: true);
 
-  void startTimer() {
-    const oneSec = const Duration(seconds: 1);
-
-    _timer = new Timer.periodic(
-      oneSec,
-      (Timer timer) => setState(
-        () {
-          _move = !_move;
-        },
+    //Animation with Tween
+    /*_radiusAnimation = Tween<double>(begin: 0.4, end: 0.5).animate(
+      CurvedAnimation(
+        parent: _animationController,
+        curve: Curves.easeInOut,
       ),
     );
-  }
 
-  static const ms = const Duration(milliseconds: 1);
-  //When screen open, animation doesn't trigger because it's waiting 1 second
-  //to setState dueto timer.period. So we change state after 1 miliseconds
-  //when screen open
-  nearlyImmediateTimer() {
-    var duration = ms;
-    return new Timer(duration, nearlyImmediateSetState);
-  }
-
-  void nearlyImmediateSetState() {
-    setState(() {
-      _move = !_move;
-    });
+    _animationController.addListener(() {
+      setState(() {});
+    });*/
   }
 
   @override
   void dispose() {
-    _timer.cancel();
+    _animationController.dispose();
     super.dispose();
   }
 
@@ -82,17 +68,11 @@ class _HeroScreenState extends State<HeroScreen> {
                         child: Stack(
                           overflow: Overflow.visible,
                           children: <Widget>[
-                            GestureDetector(
-                              onTap: () {
-                                //print('basıldı.');
-                                setState(() {
-                                  _move = !_move;
-                                });
-                              },
-                              child: AnimatedContainer(
-                                decoration: BoxDecoration(
+                            DecoratedBoxTransition(
+                              decoration: DecorationTween(
+                                begin: BoxDecoration(
                                   gradient: RadialGradient(
-                                    radius: _move ? 0.5 : 0.4,
+                                    radius: 0.4,
                                     center: Alignment.center,
                                     colors: [
                                       widget.hero.clipPathColor,
@@ -101,8 +81,23 @@ class _HeroScreenState extends State<HeroScreen> {
                                     stops: [0.4, 1.0],
                                   ),
                                 ),
-                                duration: Duration(seconds: 1),
-                                curve: Curves.easeInOut,
+                                end: BoxDecoration(
+                                  gradient: RadialGradient(
+                                    radius: 0.5,
+                                    center: Alignment.center,
+                                    colors: [
+                                      widget.hero.clipPathColor,
+                                      Colors.black
+                                    ],
+                                    stops: [0.4, 1.0],
+                                  ),
+                                ),
+                              ).animate(
+                                CurvedAnimation(
+                                    parent: _animationController,
+                                    curve: Curves.easeInOut),
+                              ),
+                              child: Container(
                                 child: Padding(
                                   padding:
                                       const EdgeInsets.fromLTRB(0, 5, 5, 30),
@@ -202,7 +197,8 @@ class _HeroScreenState extends State<HeroScreen> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               for (var item in widget.hero.heroSkills)
-                                HeroSkillImages(//Spareting Hero skill images with making new widget, provides to usage of animation tween separately. If we use widget code below for without making new widget, all the hero skill images rotate same time. 
+                                HeroSkillImages(
+                                  //Spareting Hero skill images with making new widget, provides to usage of animation tween separately. If we use widget code below for without making new widget, all the hero skill images rotate same time.
                                   heroSkill: item,
                                 ),
                             ],
