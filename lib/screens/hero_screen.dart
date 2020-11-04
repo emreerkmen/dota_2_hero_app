@@ -18,8 +18,7 @@ class HeroScreen extends StatefulWidget {
 
 class _HeroScreenState extends State<HeroScreen>
     with SingleTickerProviderStateMixin {
-
-AnimationController _animationController;
+  AnimationController _animationController;
   //Animation<double> _radiusAnimation;
 
   @override
@@ -76,7 +75,7 @@ AnimationController _animationController;
                                     center: Alignment.center,
                                     colors: [
                                       widget.hero.clipPathColor,
-                                      Colors.black
+                                      Theme.of(context).primaryColor,
                                     ],
                                     stops: [0.4, 1.0],
                                   ),
@@ -87,7 +86,7 @@ AnimationController _animationController;
                                     center: Alignment.center,
                                     colors: [
                                       widget.hero.clipPathColor,
-                                      Colors.black
+                                      Theme.of(context).primaryColor,
                                     ],
                                     stops: [0.4, 1.0],
                                   ),
