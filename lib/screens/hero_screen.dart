@@ -19,7 +19,6 @@ class HeroScreen extends StatefulWidget {
 class _HeroScreenState extends State<HeroScreen>
     with SingleTickerProviderStateMixin {
   AnimationController _animationController;
-  //Animation<double> _radiusAnimation;
 
   @override
   void initState() {
@@ -29,18 +28,6 @@ class _HeroScreenState extends State<HeroScreen>
       duration: Duration(seconds: 1, milliseconds: 500),
       vsync: this,
     )..repeat(reverse: true);
-
-    //Animation with Tween
-    /*_radiusAnimation = Tween<double>(begin: 0.4, end: 0.5).animate(
-      CurvedAnimation(
-        parent: _animationController,
-        curve: Curves.easeInOut,
-      ),
-    );
-
-    _animationController.addListener(() {
-      setState(() {});
-    });*/
   }
 
   @override
