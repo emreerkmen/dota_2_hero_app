@@ -86,7 +86,7 @@ class _HeroScreenState extends State<HeroScreen>
                               child: Container(
                                 child: Padding(
                                   padding:
-                                      const EdgeInsets.fromLTRB(0, 5, 5, 30),
+                                  const EdgeInsets.fromLTRB(0, 5, 5, 30),
                                   child: Image.asset(
                                     'images/${widget.hero.pngName}.png',
                                     width: 500.0,
@@ -109,10 +109,10 @@ class _HeroScreenState extends State<HeroScreen>
                                     padding: EdgeInsets.all(4),
                                     child: Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
+                                      MainAxisAlignment.spaceEvenly,
                                       children: [
                                         for (String item
-                                            in widget.hero?.heroClass)
+                                        in widget.hero?.heroClass)
                                           Center(
                                             child: Container(
                                               padding: EdgeInsets.symmetric(
@@ -138,7 +138,7 @@ class _HeroScreenState extends State<HeroScreen>
                                     child: Text(
                                       widget.hero.heroName,
                                       style:
-                                          Theme.of(context).textTheme.headline6,
+                                      Theme.of(context).textTheme.headline6,
                                     ),
                                   ),
                                 ],
@@ -164,7 +164,7 @@ class _HeroScreenState extends State<HeroScreen>
                       Container(
                         child: Padding(
                           padding:
-                              const EdgeInsets.fromLTRB(0, 10.0, 20.0, 10.0),
+                          const EdgeInsets.fromLTRB(0, 10.0, 20.0, 10.0),
                           child: Text(
                             'Hero Skills',
                             style: TextStyle(
@@ -243,7 +243,7 @@ class _HeroScreenState extends State<HeroScreen>
                             TextSpan(text: '7 Streamer '),
                             TextSpan(
                                 style:
-                                    TextStyle(color: widget.hero.clipPathColor),
+                                TextStyle(color: widget.hero.clipPathColor),
                                 text: 'Available '),
                           ],
                         ),
@@ -259,14 +259,14 @@ class _HeroScreenState extends State<HeroScreen>
                                   CircleAvatar(
                                     radius: 25.0,
                                     backgroundImage:
-                                        AssetImage('images/avatar.jpg'),
+                                    AssetImage('images/avatar.jpg'),
                                   ),
                                   Positioned(
                                     left: 40.0,
                                     child: CircleAvatar(
                                       radius: 25.0,
                                       backgroundImage:
-                                          AssetImage('images/avatar.jpg'),
+                                      AssetImage('images/avatar2.png'),
                                     ),
                                   ),
                                   Positioned(
@@ -276,7 +276,7 @@ class _HeroScreenState extends State<HeroScreen>
                                       height: 50.0,
                                       decoration: BoxDecoration(
                                         borderRadius:
-                                            BorderRadius.circular(50.0),
+                                        BorderRadius.circular(50.0),
                                         color: Colors.white,
                                       ),
                                       child: Center(
