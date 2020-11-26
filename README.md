@@ -3,8 +3,15 @@ This app is created for practicing on flutter. The app list a few Dota 2 heros a
 
 Design of Dota 2 Hero App inspired from Dribble. You can find the original design on [here](https://dribbble.com/shots/13216314-Dota-2-Streaming-App?_=1594668524241 "Dribble-Dota 2 Streaming App")
 
-## Will Be Added To Readme
-- [ ] Gif of The App
+## Screens
+<img src="https://github.com/emreerkmen/dota_2_hero_app/blob/master/Dora2Hero_Sc1.gif" alt="" width="230" height="474">   <img src="https://github.com/emreerkmen/dota_2_hero_app/blob/master/Dota2Hero_HeroGraident.gif" alt="" width="230" height="474">   <img src="https://github.com/emreerkmen/dota_2_hero_app/blob/master/Dota2Hero_HeroSkills.gif" alt="" width="230" height="474">   
+
+
+<img src="https://github.com/emreerkmen/dota_2_hero_app/blob/master/Dota2Hero_HeroStats.gif" alt="" width="230" height="474">   <img src="https://github.com/emreerkmen/dota_2_hero_app/blob/master/Dota2Hero_ThemeChange.gif" alt="" width="230" height="474">   <img src="https://github.com/emreerkmen/dota_2_hero_app/blob/master/Dota2Hero_AHero.gif" alt="" width="230" height="474">
+
+## Youtube Link
+
+https://youtu.be/9CocUJN40kg
 
 ## Design
 
