@@ -1,0 +1,13 @@
+name: Greetings
+
+on: [pull_request, issues]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/first-interaction@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        issue-message: 'Hi there. I have bad news. I want to spent my time to learn other topics of flutter such as MVVM architecture, BloC pattern, CI/CD pipeline etc. Unfortunately, continuing to develop this app doesn''t help me to learn important topics that I mentioned before. So I decide to develop a new app that I can improve myself on those kind of things. Also I want publish my app to markets but probably I can not achieve this goal cause of DOTA 2 license problem. So I don''t want o develop this app anymore. Thanks anyway for your contribution.'
+        pr-message: 'Hi there. I have bad news. I want to spent my time to learn other topics of flutter such as MVVM architecture, BloC pattern, CI/CD pipeline etc. Unfortunately, continuing to develop this app doesn''t help me to learn important topics that I mentioned before. So I decide to develop a new app that I can improve myself on those kind of things. Also I want publish my app to markets but probably I can not achieve this goal cause of DOTA 2 license problem. So I don''t want o develop this app anymore. Thanks anyway for your contribution.'
